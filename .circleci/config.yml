@@ -17,5 +17,5 @@ jobs:
       - run:
           name: Run unit tests
           command: |
-            trap "go-junit-report cards/go-test.out > cards/go-test-report.xml" EXIT
-            go test ./cards | tee go-test.out
+            trap "go-junit-report go-test.out > go-test-report.xml" EXIT
+            go test | tee go-test.out
