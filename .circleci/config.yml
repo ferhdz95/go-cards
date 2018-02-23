@@ -9,8 +9,6 @@ jobs:
 
     steps:
       - checkout
-      - run: mkdir -p $TEST_RESULTS
-      
       #Added library to convert test to xml
       - run: go get github.com/jstemmer/go-junit-report
       
