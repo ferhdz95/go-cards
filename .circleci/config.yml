@@ -1,0 +1,21 @@
+version: 2
+jobs:
+  build:
+    docker:
+      # CircleCI Go images available at: https://hub.docker.com/r/circleci/golang/
+      - image: circleci/golang:latest
+      
+    working_directory: /go/src/github.com/ferhdz95/go-cards/cards
+
+    steps:
+      - checkout
+      - run: mkdir -p $TEST_RESULTS
+      
+      #Added library to convert test to xml
+      - run: go get github.com/jstemmer/go-junit-report
+      
+      - run:
+          name: Run unit tests
+          command: |
+            trap "go-junit-report go-test.out > go-test-report.xml" EXIT
+            go test | tee go-test.out
