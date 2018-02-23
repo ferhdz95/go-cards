@@ -5,7 +5,7 @@ jobs:
       # CircleCI Go images available at: https://hub.docker.com/r/circleci/golang/
       - image: circleci/golang:latest
       
-    working_directory: ~/go/src/github.com/ferhdz95/go-cards
+    working_directory: ~/go/src/github.com/ferhdz95/go-cards/cards
 
     steps:
       - checkout
@@ -17,5 +17,5 @@ jobs:
       - run:
           name: Run unit tests
           command: |
-            trap "go-junit-report go-test.out > go-test-report.xml" EXIT
+            trap "../go-junit-report go-test.out > go-test-report.xml" EXIT
             go test ./cards | tee go-test.out
