@@ -11,9 +11,6 @@ jobs:
       - checkout
       #Added library to convert test to xml
       - run: go get github.com/jstemmer/go-junit-report
-      
-      - run: ls
-      
       - run:
           name: Run unit tests
           command: |
